@@ -11,8 +11,8 @@ namespace SimpleWeb.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return Content("helloworld!");
-            //return View();
+            //return Content("helloworld!");
+            return View();
         }
     }
 }

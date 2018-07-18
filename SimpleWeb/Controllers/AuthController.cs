@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleWeb.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,16 @@ namespace SimpleWeb.Controllers
         // GET: Auth
         public ActionResult Login()
         {
-            
-            throw new NotImplementedException();
-            //return View();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(AuthLogin form)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(form);
+            }
+            return Content("Form post re" + form.Username);
         }
        
     }
