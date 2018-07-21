@@ -34,7 +34,7 @@ namespace SimpleWeb.Controllers
                 // TODO: Make sure dont redirect to another domain for security purposes
                 return Redirect(returnUrl);
             }
-            return Redirect("/SimpleWeb");
+            return Redirect("/");
         }
        
     }
