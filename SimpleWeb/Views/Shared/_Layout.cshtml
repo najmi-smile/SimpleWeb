@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -12,12 +12,23 @@
         <h1>
             <a href="@Url.RouteUrl("Home")">Simple Blog</a>
         </h1>
-        <a href="@Url.RouteUrl("Login")">Login</a>
-        @RenderBody()
-    </header>
-    <footer>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Welcom Back, @User.Identity.Name</p>
+            <a href="@Url.RouteUrl("logout")">Logout</a>
+            if (User.IsInRole("admin"))
+            {
+                <a href="@Url.Action("index","Posts", new{area = "admin"})">View posts in admin</a>
+            }
+        }
+        else
+        {
 
-    </footer>
-    @RenderSection("Scripts",false)
+            <a href="@Url.RouteUrl("Login")">Login</a>
+        }
+    </header>
+    @RenderBody()
+    <footer></footer>
+    @RenderSection("Scripts", false)
 </body>
 </html>
