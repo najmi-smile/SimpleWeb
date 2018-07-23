@@ -1,0 +1,29 @@
+﻿@* This for importing styles from the bundler *@
+@using System.Web.Optimization
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/admin/styles")
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-pills">
+            @* Need to create an attriute to tell controller which tab is selected *@
+            <li>@Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" }, new { Page = "Posts"})</li>
+            <li>@Html.ActionLink("Users", "Index", "Users", new { area = "admin" })</li>
+            <li>@Html.RouteLink("Home", "Home")</li>
+
+        </ul>
+    </div>
+   
+    @RenderBody()
+    <h1>This is admin Layout</h1>
+    @Scripts.Render("~/admin/scripts")
+    @RenderSection("Scripts", false)
+</body>
+</html>

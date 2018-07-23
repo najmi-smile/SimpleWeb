@@ -12,7 +12,7 @@ namespace SimpleWeb.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return Content("Users!");
+            return View();
         }
     }
 }

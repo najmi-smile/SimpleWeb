@@ -1,4 +1,6 @@
-﻿@{
+﻿@* This for importing styles from the bundler *@
+@using System.Web.Optimization
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -6,11 +8,13 @@
 <html>
 <head>
     <title>@ViewBag.Title - SimpleBlog</title>
+    @Styles.Render("~/styles")
 </head>
 <body>
     <header>
         <h1>
             <a href="@Url.RouteUrl("Home")">Simple Blog</a>
+            <i class="glyphicon glyphicon-bell"></i>
         </h1>
         @if (User.Identity.IsAuthenticated)
         {
@@ -29,6 +33,7 @@
     </header>
     @RenderBody()
     <footer></footer>
+    @Scripts.Render("~/scripts")
     @RenderSection("Scripts", false)
 </body>
 </html>
