@@ -1,16 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+using System.Web.Mvc;
 namespace SimpleWeb.Infrastructure
 {
-    public class SlectedTabAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class SlectedTabAttribute : ActionFilterAttribute
     {
         string _slectedTab;
         public SlectedTabAttribute(string selectedTab)
         {
             this._slectedTab = selectedTab;
+        }
+        public override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            filterContext.Controller.ViewBag.SelectedTab = _slectedTab;
         }
     }
 }

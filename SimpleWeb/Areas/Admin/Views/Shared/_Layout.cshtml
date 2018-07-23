@@ -3,6 +3,13 @@
 @{
     Layout = null;
 }
+@helper SelectedTabClass(string tabName)
+{
+    if (tabName == ViewBag.SelectedTab)
+    {
+        @: active
+    }
+}
 <!DOCTYPE html>
 
 <html>
@@ -14,13 +21,13 @@
     <div class="container">
         <ul class="nav nav-pills">
             @* Need to create an attriute to tell controller which tab is selected *@
-            <li>@Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" }, new { Page = "Posts"})</li>
-            <li>@Html.ActionLink("Users", "Index", "Users", new { area = "admin" })</li>
+            <li class="@SelectedTabClass("posts")">@Html.ActionLink("Posts", "Index", "Posts", new { area = "admin" }, new { })</li>
+            <li class="@SelectedTabClass("users")">@Html.ActionLink("Users", "Index", "Users", new { area = "admin" }, new { })</li>
             <li>@Html.RouteLink("Home", "Home")</li>
 
         </ul>
     </div>
-   
+
     @RenderBody()
     <h1>This is admin Layout</h1>
     @Scripts.Render("~/admin/scripts")
