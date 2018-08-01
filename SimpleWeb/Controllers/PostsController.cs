@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
+using SimpleWeb.Services;
 using System.Web.Mvc;
+using SimpleWeb.Interfaces;
 
 namespace SimpleWeb.Controllers
 {
     public class PostsController : Controller
     {
-        // GET: Posts
+        readonly string connectionString = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+        
         public ActionResult Index()
         {
-            //return Content("helloworld!");
+            UserService userService = new UserService(connectionString);
+            
+            var userList = userService.GetAllUsers();
             return View();
         }
     }
