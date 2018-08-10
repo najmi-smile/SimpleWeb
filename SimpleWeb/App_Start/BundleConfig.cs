@@ -25,7 +25,8 @@ namespace SimpleWeb
             bundle.Add(new ScriptBundle("~/admin/scripts")
                 .Include("~/scripts/jquery-3.3.1.js")
                 .Include("~/jquery.validate.js")
-                .Include("~/bootstrap.js"));
+                .Include("~/bootstrap.js")
+                .Include("~/areas/admin/scripts/forms.js"));
             // this virtual path is for genral web site use
             bundle.Add(new ScriptBundle("~/scripts")
                 .Include("~/scripts/jquery-3.3.1.js")

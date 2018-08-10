@@ -63,10 +63,59 @@ namespace SimpleWeb.Areas.Admin.Controllers
             var user = Database.Session.Load<UserModel>(id);
             if (user == null)
                 return HttpNotFound();
+
             if (Database.Session.Query<UserModel>().Any(u => u.UserName == form.UserName && u.Id != id))
                 ModelState.AddModelError("Username", "Username must be unique!");
+
             if (!ModelState.IsValid)
                 return View(form);
+            user.UserName = form.UserName;
+            user.Email = form.Email;
+            Database.Session.Update(user);
+            return RedirectToAction("index");
+        }
+
+        public ActionResult ResetPassword(int id)
+        {
+            var user = Database.Session.Load<UserModel>(id);
+            if (user == null)
+                return HttpNotFound();
+            return View(new UsersResetPassword
+            {
+                UserName = user.UserName
+            });
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(int id, UsersResetPassword form)
+        {
+            var user = Database.Session.Load<UserModel>(id);
+            if (user == null)
+                return HttpNotFound();
+
+            if (Database.Session.Query<UserModel>().Any(u => u.UserName == form.UserName && u.Id != id))
+                ModelState.AddModelError("Username", "Username must be unique!");
+
+            form.UserName = user.UserName;
+
+            if (!ModelState.IsValid)
+                return View(form);
+
+            user.SetPassword(form.Password);
+            
+            Database.Session.Update(user);
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            // uses script Form.js in Scripts folder to confirm and delete the entry
+            var user = Database.Session.Load<UserModel>(id);
+            if (user == null)
+                return HttpNotFound();
+            Database.Session.Delete(user);
+            return RedirectToAction("index");
         }
     }
 }

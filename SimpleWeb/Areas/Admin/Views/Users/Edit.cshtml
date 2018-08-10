@@ -1,7 +1,7 @@
 ﻿
-@model SimpleWeb.Areas.Admin.ViewModels.UsersNew
+@model SimpleWeb.Areas.Admin.ViewModels.UsersEdit
 <div class="container">
-    <h1>New User</h1>
+    <h1>Edit User @Model.UserName</h1>
 
     @using (Html.BeginForm())
     {
@@ -15,11 +15,8 @@
             @Html.LabelFor(f => f.Email)
             @Html.TextBoxFor(f => f.Email, new { @class = "form-control", type = "email" })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(f => f.Password)
-            @Html.PasswordFor(f => f.Password, new { @class = "form-control", type = "password" })
-        </div>
-        <input type="submit" value="Create User" class="btn btn-primary" />
+
+        <input type="submit" value="Update User" class="btn btn-primary" />
         <a href="@Url.Action("index")">or Cancel</a>
     }
 </div>

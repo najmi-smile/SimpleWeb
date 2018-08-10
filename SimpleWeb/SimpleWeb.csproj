@@ -158,6 +158,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Forms.js" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\de-DE\FluentMigrator.Abstractions.resources.dll" />
@@ -337,6 +338,7 @@
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\Admin.css" />
     <Content Include="Content\Styles\Site.css" />
@@ -349,6 +351,13 @@
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput %28DESKTOP-LC1KMU0%27s conflicted copy 2018-08-03%29.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\SimpleWeb.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SimpleWeb.dll" />
+    <Content Include="obj\Debug\SimpleWeb.pdb" />
     <Content Include="obj\Release\SimpleWeb.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Release\SimpleWeb.csprojAssemblyReference.cache" />
     <Content Include="bin\roslyn\csc.exe.config" />
@@ -363,6 +372,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="Areas\Admin\Views\Users\New.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\ResetPassword.cshtml" />
     <None Include="bin\SimpleWeb.dll.config" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -386,6 +396,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="obj\Debug\SimpleWeb.csproj.CopyComplete" />
+    <Content Include="obj\Debug\SimpleWeb.csproj.CoreCompileInputs %28DESKTOP-LC1KMU0%27s conflicted copy 2018-08-03%29.cache" />
+    <Content Include="obj\Debug\SimpleWeb.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\SimpleWeb.csprojAssemblyReference.cache" />
+    <Content Include="obj\Debug\Tsc.out" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -406,6 +421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -459,7 +475,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleWeb.Entities\SimpleWeb.Entities.csproj">

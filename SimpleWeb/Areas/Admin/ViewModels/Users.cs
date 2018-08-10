@@ -26,4 +26,9 @@ namespace SimpleWeb.Areas.Admin.ViewModels
         [Required, DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }
+    public class UsersResetPassword
+    {        
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
 }

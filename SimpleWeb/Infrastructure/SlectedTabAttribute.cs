@@ -5,7 +5,7 @@ namespace SimpleWeb.Infrastructure
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class SlectedTabAttribute : ActionFilterAttribute
     {
-        string _slectedTab;
+        readonly string _slectedTab;
         public SlectedTabAttribute(string selectedTab)
         {
             this._slectedTab = selectedTab;
